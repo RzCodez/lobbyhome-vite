@@ -1,0 +1,2 @@
+# lobbyhome-vite
+ no
