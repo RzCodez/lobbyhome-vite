@@ -1,0 +1,323 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
+
+
+$extralight: 200;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+
+* {
+  // transition:all 500ms cubic-bezier(0.68,-0.55,0.27,1.55);
+  font-family: "Inter", sans-serif;
+  color: white;
+  // transition: all 1s cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: black;
+}
+
+.main-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  // background: maroon;
+  overflow: hidden;
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .overlay-black{
+    z-index: 1;
+    position: absolute;
+    inset: 0;
+    background: black;
+    opacity: 1;
+  }
+
+  .img {
+    // opacity: 0.7;
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background: url("../img/image-4.png") no-repeat center;
+    background-size: cover;
+    // filter: brightness(80%);
+  }
+
+  .inner-container {
+    position: relative;
+    z-index: 2;
+    padding-top: clamp(3.125rem, 2.6923rem + 1.9231vw, 5rem);
+    // font-size: 5rem;
+
+    width: 100%;
+    height: 100%;
+    // background: crimson;
+    // border: 5px solid crimson;
+
+    
+
+    .time-date {
+      // transform: scale()
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+
+      .time {
+        margin-bottom: 1rem;
+
+        .timeCount {
+          // font-size: clamp(30px, 5vw, 5rem);
+          // font-size: 5rem;;
+          // font-size: 80pt;
+          font-size: clamp(4rem, 3.3847rem + 2.7346vw, 6.6662rem);
+          font-weight: $medium;
+        }
+      }
+
+      .date {
+        // font-size: 20pt;
+        font-size: clamp(1.11rem, 1.0777rem + 0.1436vw, 1.25rem);
+        font-weight: $light;
+        letter-spacing: 0.2em;
+      }
+    }
+
+    .media-icons {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100px;
+      height: 200px;
+      // background: red;
+
+      .items {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:hover {
+          .svg-item {
+            opacity: 1;
+          }
+          .block {
+            transform: translateX(0);
+          }
+        }
+
+        .block {
+          transform: translateX(-100%);
+          width: 5px;
+          height: 30px;
+          background: white;
+          transition: transform 300ms ease-out;
+        }
+
+        .svg-item {
+          opacity: 0.5;
+          display: flex;
+          align-items: center;
+          width: 40px;
+          fill: white;
+          transition: opacity 300ms ease-out;
+        }
+      }
+    }
+
+    .weather-info {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      bottom: 0;
+      opacity: 0;
+      left: 6rem;
+    //   background: red;
+      // width: 300px;
+      padding: 0 10px 0 0;
+      // height: 100px;
+
+      .temp-num {
+        // width: 100%;
+        font-size: clamp(4rem, 2.9616rem + 2.3929vw, 5.8331rem);
+        font-weight: $medium;
+      }
+
+      .loc-season {
+        font-weight: $light;
+        .location {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+          .loc-name {
+            font-size: clamp(1.0831rem, 1.0446rem + 0.1712vw, 1.25rem);
+          }
+
+          .season-icon{
+            display: flex;
+            align-items: center;
+
+            img{
+                width: 30px;
+
+                &.sunny{
+                  animation: 7s spin linear infinite;
+                }
+                
+            }
+        }
+        }
+      }
+    }
+
+    .quotes-container{
+      position: absolute;
+      // bottom: clamp(7.5rem, 6.9231rem + 2.5641vw, 10rem);
+      bottom: clamp(7.5rem, 6.4615rem + 4.6154vw, 12rem);
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 40vw;
+      height: 100px;
+      // background: red;
+      font-size: clamp(1rem, 0.8461rem + 0.684vw, 1.6669rem);
+      font-weight: $extralight;
+      text-align: center;
+      line-height: 166.5%;
+
+      .quotetext{
+        display: block;
+      }
+    }
+
+    .monitor-status{
+      position: absolute;
+      bottom: 20px;
+      right: 6rem;
+      gap: 2rem;
+      // width: 300px;
+      // height: 100px;
+      // background: rgb(255, 0, 0, .5);
+      // border: 5px solid yellow;
+      display: flex;
+      align-items: center;
+      font-weight: $regular;
+
+      .status-box{
+        // background: red;
+
+        p{
+          font-size: clamp(0.8331rem, 0.7561rem + 0.3424vw, 1.1669rem);
+        }
+
+        .status-bar{
+          margin-top: 10px;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          .bitrate{
+            font-size: clamp(0.6669rem, 0.6285rem + 0.1705vw, 0.8331rem);
+          }
+          
+          .outer-bar{
+            width: 180px;
+            height: 25px;
+            background: rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+
+            .inner-bar{
+              height: 100%;
+              // width: 20%;
+              background: white;
+
+              &.networkRange{
+                width: 0%;
+              }
+            }
+          }
+        }
+
+        &:nth-child(2){
+          .status-bar{
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+  
+            .bitrate{
+              font-size: clamp(0.6669rem, 0.6285rem + 0.1705vw, 0.8331rem);
+            }
+            
+            .outer-bar{
+              overflow: hidden;
+              width: 180px;
+              height: 25px;
+              background: rgba(0, 0, 0, 0.3);
+  
+              .inner-bar{
+                display:block;
+                height: 100%;
+                // width: 20%;
+                background: white;
+  
+                // &.batteryRange{
+                //   // width: 60%;
+                // }
+              }
+            }
+          }
+        }
+      }
+
+
+
+    }
+  }
+}
+
+.overlay-black-front{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  // opacity: 0.5;
+}
+
+
+.ruler{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: red;
+}
+
+
+
+@keyframes spin {
+    from{
+        transform:rotate(0);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
