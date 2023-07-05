@@ -242,6 +242,7 @@ body {
             overflow: hidden;
 
             .inner-bar{
+              transition: all 500ms ease;
               height: 100%;
               // width: 20%;
               background: white;
