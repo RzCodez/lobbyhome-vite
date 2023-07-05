@@ -285,12 +285,97 @@ body {
           }
         }
       }
-
-
-
     }
   }
 }
+
+@media screen and (max-width: 999px){
+
+  .main-container{
+    .inner-container{
+      .monitor-status{
+        position: absolute;
+        bottom: 20px;
+        right: 6rem;
+        gap: 2rem;
+        // width: 300px;
+        // height: 100px;
+        // background: rgb(255, 0, 0, .5);
+        // border: 5px solid yellow;
+        display: flex;
+        align-items: center;
+        font-weight: $regular;
+  
+        .status-box{
+          // background: red;
+
+          &:nth-child(1){
+            display: none;
+          }
+  
+          &:nth-child(2){
+            .status-bar{
+              margin-top: 10px;
+              display: flex;
+              align-items: center;
+              gap: 1rem;
+    
+              .bitrate{
+                font-size: clamp(0.6669rem, 0.6285rem + 0.1705vw, 0.8331rem);
+              }
+              
+              .outer-bar{
+                overflow: hidden;
+                width: 180px;
+                height: 25px;
+                background: rgba(0, 0, 0, 0.3);
+    
+                .inner-bar{
+                  display:block;
+                  height: 100%;
+                  // width: 20%;
+                  background: white;
+    
+                  // &.batteryRange{
+                  //   // width: 60%;
+                  // }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+@media screen and (max-width: 699px){
+
+  .main-container{
+    .inner-container{
+      .monitor-status{
+        position: absolute;
+        bottom: 20px;
+        right: 6rem;
+        gap: 2rem;
+        // width: 300px;
+        // height: 100px;
+        // background: rgb(255, 0, 0, .5);
+        // border: 5px solid yellow;
+        display: flex;
+        align-items: center;
+        font-weight: $regular;
+  
+        .status-box{
+          display: none;
+        }
+      }
+    }
+  }
+  
+}
+
 
 .overlay-black-front{
   position: absolute;

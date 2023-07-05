@@ -171,9 +171,6 @@ window.addEventListener("load", () => {
                 <div class="loc-season">
                      <div class="location">
                         <div class="loc-name">${locDefault}</div>
-                        <div class="season-icon">
-                            <!-- <img class="weather-icon sunny" src="http://openweathermap.org/img/w/${iconCode}.png" alt=""> -->
-                        </div>
                     </div>
                     <div class="season-info">
                         <span class="info">${description}</span>
@@ -194,70 +191,6 @@ window.addEventListener("load", () => {
   fetchWeatherData();
 
   // Battery & Network Monitor
-
-  function updateBandwidth() {
-    if (navigator.connection) {
-      var connection = navigator.connection;
-
-      if (connection.downlink) {
-        var bandwidthMbps = connection.downlink;
-          var networkRangeElement = document.querySelector('.networkRange');
-          networkRangeElement.style.width = bandwidthMbps + '%';
-
-          var netbitElement = document.querySelector('.netbit');
-          netbitElement.textContent = bandwidthMbps + 'mb/s';
-
-        // console.log('Kecepatan unduhan (bandwidth): ' + bandwidthMbps + ' Mbps');
-
-        // Lakukan tindakan atau perbarui tampilan berdasarkan perubahan bandwidth di sini
-      } else {
-        console.log("Properti downlink tidak tersedia.");
-      }
-    } else {
-      console.log("Network Information API tidak tersedia di perangkat ini.");
-    }
-  }
-
-  // Event listener untuk mendengarkan perubahan koneksi
-  navigator.connection.addEventListener("change", updateBandwidth);
-
-  // Panggil fungsi pertama kali untuk menginisialisasi nilai bandwidth
-  updateBandwidth();
-
-  // function getNetworkData() {
-
-  //   if (window.performance) {
-
-  //     var network = performance.getEntriesByType('navigation')[0];
-
-  //     var uploadSpeed = network.transferSize;
-
-  //     updateNetworkStatus(uploadSpeed);
-  //   }
-  // }
-
-  // function formatSizeUnits(bytes) {
-  //   if (bytes < 1024) {
-  //     return bytes + " bytes";
-  //   } else if (bytes < 1048576) {
-  //     return (bytes / 1024).toFixed(2) + " KB";
-  //   } else if (bytes < 1073741824) {
-  //     return (bytes / 1048576).toFixed(2) + " MB";
-  //   } else {
-  //     return (bytes / 1073741824).toFixed(2) + " GB";
-  //   }
-  // }
-
-  // function updateNetworkStatus(uploadSpeed) {
-
-  //   var networkRangeElement = document.querySelector('.networkRange');
-  //   networkRangeElement.style.width = uploadSpeed / 1024 + '%';
-
-  //   var netbitElement = document.querySelector('.netbit');
-  //   netbitElement.textContent = formatSizeUnits(uploadSpeed) + '/s';
-  // }
-
-  // getNetworkData();
 
   const backgroundImg = document.querySelector(".img");
 
@@ -297,6 +230,9 @@ var batteryBar = document.querySelector(".batteryRange"),
   battery = document.querySelector(".battery");
 
 const batteryPercent = document.querySelector(".battery-percent");
+
+
+var network = document.querySelector(".network");
 function fnBrowserDetect() {
   let userAgent = navigator.userAgent;
 
@@ -312,16 +248,47 @@ function fnBrowserDetect() {
       // setTimeout(batteryMonitor, 1000);
     }
     batteryMonitor();
+
+    function updateBandwidth() {
+      if (navigator.connection) {
+        var connection = navigator.connection;
+  
+        if (connection.downlink) {
+          var bandwidthMbps = connection.downlink;
+            var networkRangeElement = document.querySelector('.networkRange');
+            networkRangeElement.style.width = bandwidthMbps + '%';
+  
+            var netbitElement = document.querySelector('.netbit');
+            netbitElement.textContent = bandwidthMbps + 'mb/s';
+
+        } else {
+          console.log("Properti downlink tidak tersedia.");
+        }
+      } else {
+        console.log("Network Information API tidak tersedia di perangkat ini.");
+      }
+    }
+  
+    // Perubahan koneksi secara signifikan
+    navigator.connection.addEventListener("change", updateBandwidth);
+  
+    updateBandwidth();
   } else if (userAgent.match(/firefox|fxios/i)) {
     battery.style.display = "none";
+    network.style.display = "none";
+
   } else if (userAgent.match(/safari/i)) {
-    browserName = "safari";
+    battery.style.display = "none";
+    network.style.display = "none";
   } else if (userAgent.match(/opr\//i)) {
-    browserName = "opera";
+  battery.style.display = "none";
+  network.style.display = "none";
   } else if (userAgent.match(/edg/i)) {
-    browserName = "edge";
+    battery.style.display = "none";
+    network.style.display = "none";
   } else {
-    browserName = "No browser detection";
+    battery.style.display = "none";
+    network.style.display = "none";
   }
 
   //  document.querySelector("h1").innerText="You are using "+ browserName +" browser";
