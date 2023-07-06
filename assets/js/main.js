@@ -240,7 +240,8 @@ function fnBrowserDetect() {
     function batteryMonitor() {
       navigator.getBattery().then(function (battery) {
         batteryBar.style.width = battery.level * 100 + "%";
-        batteryPercent.textContent = battery.level * 100 + "%";
+        // batteryPercent.textContent = battery.level * 100 + "%";
+        batteryPercent.textContent = Math.trunc(battery.level * 100) + "%";
 
         // console.log(battery.level);
       });
