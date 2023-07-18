@@ -5,11 +5,11 @@ export default defineConfig({
     host: true,
     port: 3000,
   },
+
   build: {
-    outDir: "src",
+    outDir: "dist",
     minify: true,
     rollupOptions: {
-      input: "assets/js/main.js",
       output: {
         entryFileNames: "[name]-[hash].js",
         chunkFileNames: "[name]-[hash].js",

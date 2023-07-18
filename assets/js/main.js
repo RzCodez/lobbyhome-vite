@@ -1,4 +1,7 @@
 import { gsap } from "gsap";
+// import dotenv from "dotenv";
+
+// dotenv.config();
 
 const overlayBlackFront = document.querySelector(".overlay-black-front");
 
