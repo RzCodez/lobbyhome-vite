@@ -18,7 +18,7 @@ function mt(u){if(u===void 0)throw new ReferenceError("this hasn't been initiali
 
   <span>${r}</span>
 
-`,u.from(".date",{duration:1,y:50,opacity:0,ease:"expo.out"},.2),u.from(".items",{duration:1,x:-10,opacity:0,ease:"expo.out",stagger:.2},.3);function n(){var h="inspirational";const _=document.querySelector(".quotes-container"),c=150;fetch("https://api.api-ninjas.com/v1/quotes?category="+h,{method:"GET",headers:{"X-Api-Key":{}.process.env.QUOTES_API_KEY,"Content-Type":"application/json"}}).then(function(d){if(d.ok)return d.json();throw new Error("Error: "+d.status)}).then(function(d){if(d.length>0){const p=d.filter(l=>l.quote.length<=c);if(p.length>0){const m=p[Math.floor(Math.random()*p.length)].quote;_.innerHTML=`
+`,u.from(".date",{duration:1,y:50,opacity:0,ease:"expo.out"},.2),u.from(".items",{duration:1,x:-10,opacity:0,ease:"expo.out",stagger:.2},.3);function n(){var h="inspirational";const _=document.querySelector(".quotes-container"),c=150;fetch("https://api.api-ninjas.com/v1/quotes?category="+h,{method:"GET",headers:{"X-Api-Key": process.env.QUOTES_API_KEY,"Content-Type":"application/json"}}).then(function(d){if(d.ok)return d.json();throw new Error("Error: "+d.status)}).then(function(d){if(d.length>0){const p=d.filter(l=>l.quote.length<=c);if(p.length>0){const m=p[Math.floor(Math.random()*p.length)].quote;_.innerHTML=`
         <span class="quotetext">
                   ${m}
         </span>
