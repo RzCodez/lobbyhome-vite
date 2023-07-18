@@ -6,15 +6,16 @@ export default defineConfig({
     port: 3000,
   },
 
-  build: {
-    outDir: "dist",
-    minify: true,
-    rollupOptions: {
-      output: {
-        entryFileNames: "[name]-[hash].js",
-        chunkFileNames: "[name]-[hash].js",
-        assetFileNames: '[name]-[hash][extname]?v=[hash]',
-      },
-    },
-  },
+  // build: {
+  //   outDir: "dist",
+  //   minify: true,
+  //   rollupOptions: {
+  //     // input: "assets/js/main.js",
+  //     output: {
+  //       entryFileNames: "[name]-[hash].js",
+  //       chunkFileNames: "[name]-[hash].js",
+  //       assetFileNames: '[name]-[hash][extname]?v=[hash]',
+  //     },
+  //   },
+  // },
 });
