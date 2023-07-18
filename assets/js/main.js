@@ -86,18 +86,18 @@ window.addEventListener("load", () => {
     },
     0.3
   );
-
+  // console.log();
   // Quotes API
   function getRandomQuote() {
     var category = "inspirational";
-    var apiKey = "eCRMMjfKfgX7GVJ/n7vaVw==0i8VA11Z1AofYG6q";
+    // var apiKey = "eC;
     const quoteContainer = document.querySelector(".quotes-container");
     const characterLimit = 150;
 
     fetch("https://api.api-ninjas.com/v1/quotes?category=" + category, {
       method: "GET",
       headers: {
-        "X-Api-Key": apiKey,
+        "X-Api-Key": import.meta.env.VITE_QUOTES_API_KEY,
         "Content-Type": "application/json",
       },
     })
@@ -151,7 +151,7 @@ window.addEventListener("load", () => {
   getRandomQuote();
 
   const weatherContainer = document.querySelector(".weather-info"),
-    APIKey = "ce70f5e97be3be86f8cec7150cf3a1e5",
+    APIKey = import.meta.env.VITE_WEATHER_API_KEY,
     locDefault = "South Tangerang";
 
   async function fetchWeatherData() {

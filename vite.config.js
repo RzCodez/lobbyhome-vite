@@ -6,7 +6,7 @@ export default defineConfig({
     port: 3000,
   },
   build: {
-    outDir: "dist",
+    outDir: "src",
     minify: true,
     rollupOptions: {
       input: "assets/js/main.js",
