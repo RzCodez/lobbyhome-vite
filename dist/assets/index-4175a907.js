@@ -18,11 +18,11 @@
 
   <span>${r}</span>
 
-`,u.from(".date",{duration:1,y:50,opacity:0,ease:"expo.out"},.2),u.from(".items",{duration:1,x:-10,opacity:0,ease:"expo.out",stagger:.2},.3);function n(){var h="inspirational";const _=document.querySelector(".quotes-container"),c=150;fetch("https://api.api-ninjas.com/v1/quotes?category="+h,{method:"GET",headers:{"X-Api-Key":{}.QUOTES_API_KEY,"Content-Type":"application/json"}}).then(function(d){if(d.ok)return d.json();throw new Error("Error: "+d.status)}).then(function(d){if(d.length>0){const p=d.filter(l=>l.quote.length<=c);if(p.length>0){const m=p[Math.floor(Math.random()*p.length)].quote;_.innerHTML=`
+`,u.from(".date",{duration:1,y:50,opacity:0,ease:"expo.out"},.2),u.from(".items",{duration:1,x:-10,opacity:0,ease:"expo.out",stagger:.2},.3);function n(){var h="inspirational";const _=document.querySelector(".quotes-container"),c=150;fetch("https://api.api-ninjas.com/v1/quotes?category="+h,{method:"GET",headers:{"X-Api-Key":{}.VITE_QUOTES_API_KEY,"Content-Type":"application/json"}}).then(function(d){if(d.ok)return d.json();throw new Error("Error: "+d.status)}).then(function(d){if(d.length>0){const p=d.filter(l=>l.quote.length<=c);if(p.length>0){const m=p[Math.floor(Math.random()*p.length)].quote;_.innerHTML=`
         <span class="quotetext">
                   ${m}
         </span>
-        `,xe.from(_,{duration:1,y:50,opacity:0,ease:"expo.out"})}else console.log("....")}else _.innerHTML='<p class="noquote">No quotes available.</p>'}).catch(function(d){console.error("Error: ",d)})}n();const s=document.querySelector(".weather-info"),a={}.WEATHER_API_KEY,o="South Tangerang";async function f(){const _=await(await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Tangerang%20Selatan&appid=${a}`)).json(),c=Math.round(_.main.temp-273.15),d=_.weather[0].description;_.weather[0].icon,s.innerHTML=`
+        `,xe.from(_,{duration:1,y:50,opacity:0,ease:"expo.out"})}else console.log("....")}else _.innerHTML='<p class="noquote">No quotes available.</p>'}).catch(function(d){console.error("Error: ",d)})}n();const s=document.querySelector(".weather-info"),a={}.VITE_WEATHER_API_KEY,o="South Tangerang";async function f(){const _=await(await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Tangerang%20Selatan&appid=${a}`)).json(),c=Math.round(_.main.temp-273.15),d=_.weather[0].description;_.weather[0].icon,s.innerHTML=`
                 <div class="temp-num">
                     <span class="tempNum">${c}</span>&deg;
                 </div>
